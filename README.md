@@ -38,7 +38,7 @@ You only need to use the martha command:
 Everyone is freely to collaborate and submit pull request if needed.
 You can add more support for new programming lenguages
 
-Author & Contributor List
+##Author & Contributor List
 -------------------
 - Victor Elizalde
 - Oscar Michel Herrera
