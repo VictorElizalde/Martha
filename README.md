@@ -6,7 +6,7 @@ Gem that documents code/software for a better organisation and understanding of 
 - [Usage](#usage)
 - [What it actually do?](#what-it-actually-do)
 - [Contributing](#contributing)
-- [Credits](#author-&-contributor-list)
+- [Credits](#author-and-contributor-list)
 
 ## Installation
 Pre-install:
@@ -40,7 +40,7 @@ You only need to use the martha command:
 Everyone is freely to collaborate and submit pull request if needed.
 You can add more support for new programming lenguages.
 
-##Author & Contributor List
+##Author and Contributor List
 -------------------
 - Victor Elizalde
 - Oscar Michel Herrera
