@@ -17,7 +17,7 @@ module Martha
     def reveal(file_name)
       if File.file?(file_name)
         greetings
-        method_quantity file_name
+        puts "I found #{method_quantity_cpp file_name} methods/functions"
       else
         error
       end
@@ -26,20 +26,30 @@ module Martha
     private
 
     def greetings
-      puts "Martha: Hello I'm Martha!"
-      puts "Martha: With whom I have the pleasure?"
+      puts "Martha: Hello I'm Martha!\n\n"
+      puts "Martha: With whom I have the pleasure?\n\n"
       print "You: "
       @author = STDIN.gets.chomp
-      puts "Martha: Hello #{@author}!"
-      puts "Martha: Let me manage this code for you."
+      puts "Martha: Hello #{@author}!\n\n"
+      puts "Martha: Let me manage this code for you.\n\n"
+      puts "Revealing...\n\n"
     end
 
-    def method_quantity(file_name)
+    def method_quantity_cpp(file_name)
+      method_quantity = 0
       file = File.open(file_name)
       file.each_line do |line|
         @file_info << line
+        method_quantity += 1 if function?(line)
       end
-      binding.pry
+      method_quantity
+    end
+
+    def function?(line)
+      if line.include?('(')
+        header = line.split('(')[0]
+        header.split(' ').size == 2 && header.split(' ').first != "else"
+      end
     end
 
     def error
