@@ -2,11 +2,11 @@
 Gem that documents code/software for a better organisation and understanding of it by developers.
 
 ## Table of contents
-- [Installation](#quickstart)
+- [Installation](#quick-start)
 - [Usage](#usage)
 - [What it actually do?](#what-it-actually-do)
 - [Contributing](#contributing)
-- [Credits](#credits)
+- [Credits](#Author-&-Contributor-List)
 
 ## Quick start
 
