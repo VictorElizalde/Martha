@@ -6,11 +6,11 @@ Gem that documents code/software for a better organisation and understanding of 
 - [Usage](#usage)
 - [What it actually do?](#what-it-actually-do)
 - [Contributing](#contributing)
-- [Credits](#Author-&-Contributor-List)
+- [Credits](#Author-and-Contributor-List)
 
 ## Installation
 Pre-install:
-- Windows Users: Install ruby environment, we recommend [RubyInstaller](http://rubyinstaller.org/downloads/) and after install [Development Kit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit) and now you can use Ruby's gems
+- Windows Users: Install ruby environment, we recommend [RubyInstaller](http://rubyinstaller.org/downloads/) and after install [Development Kit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit) and now you can use Ruby's gems.
 
 To install the gem you can just run the following command:
 
@@ -38,9 +38,9 @@ You only need to use the martha command:
 
 ## Contributing
 Everyone is freely to collaborate and submit pull request if needed.
-You can add more support for new programming lenguages
+You can add more support for new programming lenguages.
 
-##Author & Contributor List
+##Author and Contributor List
 -------------------
 - Victor Elizalde
 - Oscar Michel Herrera
