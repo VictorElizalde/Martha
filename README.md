@@ -13,6 +13,14 @@ Gem that documents code/software for a better organisation and understanding of 
 Pre-install:
 - Windows Users: Install ruby environment, we recommend [RubyInstaller](http://rubyinstaller.org/downloads/) and after install [Development Kit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit) and now you can use Ruby's gems.
 
+- Install gems:
+```console
+% gem install pry
+```
+```console
+% gem install nokogiri
+```
+
 To install the gem you can just run the following command:
 
 ```console
