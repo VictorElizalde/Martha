@@ -8,11 +8,11 @@ Gem::Specification.new do |spec|
   spec.version       = Martha::VERSION
   spec.authors       = ['Victor Elizalde', 'Mauricio Cortes', 'Oscar Michel']
   spec.email         = ['vic-bull@hotmail.com']
-
   spec.summary       = 'A ruby gem to dockerize applications.'
   spec.description   = 'A ruby gem to dockerize applications.'
   spec.homepage      = 'https://github.com/VictorElizalde/Martha'
   spec.license       = 'MIT'
+  spec.executables << "martha"
 
   # spec.files = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
