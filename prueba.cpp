@@ -20,7 +20,16 @@ struct Garage
     Mapa Mapa_Carros[R];
 }Prueba;
 
-int ChecaDireccion(string sDirec, int &Valor_Ruta)
+/*
+Title: ChecaDireccion
+Input: string sDirec, int &Valor_Ruta
+Input Description: asd
+Output: int
+Output Description: as
+Description: s
+Author: Victor Elizalde
+*/
+int ChecaDireccion(string sDirec, int &Valor_Ruta) //function
 {
     int largo = sDirec.length();
     string Aux="";
@@ -60,12 +69,30 @@ int ChecaDireccion(string sDirec, int &Valor_Ruta)
     return -1;
 }
 
-int Minimo(int a, int b)
+/*
+Title: Minimo
+Input: int a, int b
+Input Description: d
+Output: int
+Output Description: d
+Description: sd
+Author: Victor Elizalde
+*/
+int Minimo(int a, int b) //function
 {
     return (a<b)? a : b;
 }
 
-void Floyd(int n, int Mat_Adyacencias[N][N])
+/*
+Title: Floyd
+Input: int n, int Mat_Adyacencias[N][N]
+Input Description: sd
+Output: void
+Output Description: dd
+Description: d
+Author: Victor Elizalde
+*/
+void Floyd(int n, int Mat_Adyacencias[N][N]) //function
 {
     for(int k=0; k<n; k++)
         for(int i=0; i<n; i++)
@@ -73,7 +100,16 @@ void Floyd(int n, int Mat_Adyacencias[N][N])
                 Mat_Adyacencias[i][j] = Minimo(Mat_Adyacencias[i][j], Mat_Adyacencias[i][k] + Mat_Adyacencias[k][j]);
 }
 
-void EncuentraTotal(int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N])
+/*
+Title: EncuentraTotal
+Input: int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N]
+Input Description: 
+Output: void
+Output Description: dd
+Description: d
+Author: Victor Elizalde
+*/
+void EncuentraTotal(int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N]) //function
 {
     int Sumatoria=0, Inicio=0;
     for(int i=0; i<Prueba.Number_Locations; i++)
@@ -95,7 +131,16 @@ void EncuentraTotal(int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N])
     cout << endl << "1. " << Sumatoria << endl;
 }
 
-void Imprime(int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N])
+/*
+Title: Imprime
+Input: int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N]
+Input Description: d
+Output: void
+Output Description: d
+Description: d
+Author: Victor Elizalde
+*/
+void Imprime(int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N]) //function
 {
     for(int i=0; i<Prueba.Number_Locations; i++)
     {
@@ -105,7 +150,16 @@ void Imprime(int Mat_Adyacencias[N][N], Garage Prueba, string Nombres[N])
     }
 }
 
-void Escribe_Cantidad_Nombres(Garage Prueba, string Nombres[N])
+/*
+Title: Escribe_Cantidad_Nombres
+Input: Garage Prueba, string Nombres[N]
+Input Description: dd
+Output: void
+Output Description: d
+Description: dd
+Author: Victor Elizalde
+*/
+void Escribe_Cantidad_Nombres(Garage Prueba, string Nombres[N]) //function
 {
     int cont=0;
     bool bandera1, bandera2;
@@ -137,7 +191,16 @@ void Escribe_Cantidad_Nombres(Garage Prueba, string Nombres[N])
     }
 }
 
-void Rellena_Matriz(Garage Prueba, int Mat_Adyacencias[N][N], string Nombres[N])
+/*
+Title: Rellena_Matriz
+Input: Garage Prueba, int Mat_Adyacencias[N][N], string Nombres[N]
+Input Description: d
+Output: void
+Output Description: d
+Description: d
+Author: Victor Elizalde
+*/
+void Rellena_Matriz(Garage Prueba, int Mat_Adyacencias[N][N], string Nombres[N]) //function
 {
     /*Coloca valores de posibles caminos en la matriz de adyacencias*/
     int I1, I2;
@@ -193,7 +256,16 @@ void Rellena_Matriz(Garage Prueba, int Mat_Adyacencias[N][N], string Nombres[N])
     }
 }
 
-void Crea_Tabla_Adyacencias(Garage Prueba)
+/*
+Title: Crea_Tabla_Adyacencias
+Input: Garage Prueba
+Input Description: d
+Output: void
+Output Description: d
+Description: d
+Author: Victor Elizalde
+*/
+void Crea_Tabla_Adyacencias(Garage Prueba) //function
 {
     int Mat_Adyacencias[N][N];
     string Nombres[4];

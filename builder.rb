@@ -7,7 +7,13 @@ module Martha
     include Martha
     include Thor::Actions
 
-    def initialize(args = [], local_options = {}, config = {})
+#Title: initialize
+#Input: args = [], local_options = {}, config = {}
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def initialize(args = [], local_options = {}, config = {}) #method
       super
       @author = "Victor Elizalde"
       @file_info = []
@@ -15,11 +21,16 @@ module Martha
       @output_description = ""
       @input_description = ""
       @method_info = []
-      @file_name = ""
     end
 
-    desc 'reveal FILE_NAME', 'It documents code'
-    def reveal(file_name)
+    desc 'manage FILE_NAME', 'It documents code'
+#Title: reveal
+#Input: file_name
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def reveal(file_name) #method
       @file_name = file_name
       if File.file?(@file_name)
         greetings
@@ -30,6 +41,7 @@ module Martha
           puts "I found #{method_quantity_rb} undocumented method(s)/function(s)\n\n"
           document_methods_rb
         end
+
       else
         error
       end
@@ -37,7 +49,13 @@ module Martha
 
     private
 
-    def document_methods_cpp
+#Title: document_methods_cpp
+#Input: ()
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def document_methods_cpp #method
       File.open(@file_name, 'w') { |file|
         @file_info.each do |line|
           if cpp_function?(line)
@@ -53,7 +71,13 @@ module Martha
       }
     end
 
-    def document_methods_rb
+#Title: document_methods_rb
+#Input: ()
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def document_methods_rb #method
       File.open(@file_name, 'w') { |file|
         @file_info.each do |line|
           if rb_function?(line)
@@ -61,7 +85,7 @@ module Martha
             @method_info.each do |line|
               file.write("#{line}")
             end
-            file.write("#{line.chop} #method\n")
+            file.write("#{line.chop} //function\n")
           else
             file.write("#{line}")
           end
@@ -69,7 +93,13 @@ module Martha
       }
     end
 
-    def fill_method_info(line)
+#Title: fill_method_info
+#Input: line
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def fill_method_info(line) #method
       puts "For the following method/function:\n\n"
       puts "         #{line}"
       print "\nInput Description (What does it receives?)\nYour Answer: "
@@ -79,34 +109,16 @@ module Martha
       print "\nDescription (What does the method does?)\nYour Answer: "
       @description = STDIN.gets.chomp
       puts "\n"
-      if @file_name.split('.')[1] == "cpp"
-        write_method_info_cpp line
-      else
-        write_method_info_rb line
-      end
+      write_method_info line
     end
 
-    def write_method_info_rb(line)
-      @method_info = []
-      if line.include?('(')
-        title = line.split('(')[0].split(' ')[1]
-        input = line.split('(')[1].chop
-        input[input.size-1] = ''
-      else
-        title = line.split(' ')[1]
-        input = "()"
-      end
-      output = line.split('(')[0].split(' ')[0]
-      @method_info << "#Title: #{title}\n"
-      @method_info << "#Input: #{input}\n"
-      @method_info << "#Input Description: #{@input_description}\n"
-      @method_info << "#Output Description: #{@output_description}\n"
-      @method_info << "#Description: #{@description}\n"
-      @method_info << "#Author: #{@author}\n"
-      @method_info
-    end
-
-    def write_method_info_cpp(line)
+#Title: write_method_info
+#Input: line
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def write_method_info(line) #method
       @method_info = []
       @method_info << "/*\n"
       title = line.split('(')[0].split(' ')[1]
@@ -124,7 +136,13 @@ module Martha
       @method_info
     end
 
-    def greetings
+#Title: greetings
+#Input: ()
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def greetings #method
       puts "Hello I'm Martha!\n\n"
       puts "With whom I have the pleasure?\n\n"
       print "Your Name: "
@@ -132,7 +150,13 @@ module Martha
       puts "\n"
     end
 
-    def method_quantity_cpp
+#Title: method_quantity_cpp
+#Input: ()
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def method_quantity_cpp #method
       method_quantity = 0
       file = File.open(@file_name)
       file.each_line do |line|
@@ -142,7 +166,13 @@ module Martha
       method_quantity
     end
 
-    def method_quantity_rb
+#Title: method_quantity_rb
+#Input: ()
+#Input Description: a
+#Output Description: a
+#Description: a
+#Author: Victor
+    def method_quantity_rb #method
       method_quantity = 0
       file = File.open(@file_name)
       file.each_line do |line|
@@ -152,18 +182,36 @@ module Martha
       method_quantity
     end
 
-    def cpp_function?(line)
+#Title: cpp_function?
+#Input: line
+#Input Description: 
+#Output Description: a
+#Description: aa
+#Author: Victor
+    def cpp_function?(line) #method
       if line.include?('(') && !line.include?('//function')
         header = line.split('(')[0]
         header.split(' ').size == 2 && header.split(' ').first != "else" && header.split(' ').last != "main"
       end
     end
 
-    def rb_function?(line)
-      line.split(' ')[0] == "def" && !line.include?('#method')
+#Title: rb_function?
+#Input: line
+#Input Description: a
+#Output Description: a
+#Description: 
+#Author: Victor
+    def rb_function?(line) #method
+      line.split(' ')[0] == "def"
     end
 
-    def error
+#Title: error
+#Input: ()
+#Input Description: a
+#Output Description: aa
+#Description: 
+#Author: Victor
+    def error #method
       puts "I'm sorry, but the file doesn't exist"
     end
   end
