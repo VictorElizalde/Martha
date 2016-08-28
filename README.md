@@ -1,4 +1,4 @@
-<p align="center"> ![Logo](http://orig13.deviantart.net/da3a/f/2016/241/7/3/147240327271421_by_sirgalahad31416-dafpy5d.png) </p>
+<p align="center"> <IMG SRC="http://orig13.deviantart.net/da3a/f/2016/241/7/3/147240327271421_by_sirgalahad31416-dafpy5d.png" ALT="Texto alternativo a la imagen"></p>
 # Martha
 Gem that documents code/software for a better organisation and understanding of it by developers.
 
