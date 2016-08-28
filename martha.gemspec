@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Martha::VERSION
   spec.authors       = ['Victor Elizalde', 'Mauricio Cortes', 'Oscar Michel']
   spec.email         = ['vic-bull@hotmail.com']
-  spec.summary       = 'A ruby gem to dockerize applications.'
-  spec.description   = 'A ruby gem to dockerize applications.'
+  spec.summary       = 'A ruby gem to document code (Check github repo for specifications)'
+  spec.description   = 'A ruby gem to document code (Check github repo for specifications).'
   spec.homepage      = 'https://github.com/VictorElizalde/Martha'
   spec.license       = 'MIT'
   spec.executables << "martha"
@@ -27,6 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'reek'
-
   spec.add_dependency 'thor'
 end
