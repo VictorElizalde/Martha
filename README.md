@@ -20,7 +20,7 @@ Pre-install:
 ```console
 % gem install nokogiri
 ```
-
+Install:
 To install the gem you can just run the following command:
 
 ```console
