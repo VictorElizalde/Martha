@@ -1,4 +1,4 @@
-![Logo](http://orig06.deviantart.net/e1d4/f/2016/241/4/2/logo_by_sirgalahad31416-dafpswm.png)
+![Logo](http://orig13.deviantart.net/da3a/f/2016/241/7/3/147240327271421_by_sirgalahad31416-dafpy5d.png)
 # Martha
 Gem that documents code/software for a better organisation and understanding of it by developers.
 
