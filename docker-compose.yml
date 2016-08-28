@@ -4,16 +4,13 @@ volumes:
   gems:
     driver: local
 services:
-  whally:
+  martha:
     image: ruby:2.3.0
-    entrypoint: /usr/src/whally/development-entrypoint.sh
+    entrypoint: /usr/src/martha/development-entrypoint.sh
     command: bash
     volumes:
-      - .:/usr/src/whally
+      - .:/usr/src/martha
       - gems:/usr/local/bundle
-      - ../datoz-master:/usr/src/whally/datoz
-    working_dir: /usr/src/whally
+    working_dir: /usr/src/martha
     tty: true
     stdin_open: true
-    environment:
-      CODECLIMATE_REPO_TOKEN: 1d8bb56c61c6eb5348dd41a22131125ab6bf1328f62b06d36e88275da9e10b7a
