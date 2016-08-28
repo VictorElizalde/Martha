@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    martha (0.0.0)
+    martha (0.0.2)
       thor
 
 GEM

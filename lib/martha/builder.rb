@@ -74,11 +74,11 @@ module Martha
     def fill_method_info(line)
       puts "For the following method/function:\n\n"
       puts "         #{line}"
-      print "\nInput Description (What does it receives?)\nYour Answer: "
+      print "\nInput Description (What does it receives?)\n\n     Your Answer: "
       @input_description = STDIN.gets.chomp
-      print "\nOutput Description (What does it returns?)\nYour Answer: "
+      print "\nOutput Description (What does it returns?)\n\n     Your Answer: "
       @output_description = STDIN.gets.chomp
-      print "\nDescription (What does the method does?)\nYour Answer: "
+      print "\nDescription (What does the method does?)\n\n       Your Answer: "
       @description = STDIN.gets.chomp
       puts "\n"
       if @file_name.split('.')[1] == "cpp"
