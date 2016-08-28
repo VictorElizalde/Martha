@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'martha'
   spec.version       = Martha::VERSION
   spec.authors       = ['Victor Elizalde', 'Mauricio Cortes', 'Oscar Michel']
-  spec.email         = ['vic-bull@hotmail.com']
+  spec.email         = ['vic-bull@hotmail.com', 'abmaury97@hotmail.com', 'oscarmichelh@gmail.com']
   spec.summary       = 'A ruby gem to document code (Check github repo for specifications)'
   spec.description   = 'A ruby gem to document code (Check github repo for specifications).'
   spec.homepage      = 'https://github.com/VictorElizalde/Martha'
