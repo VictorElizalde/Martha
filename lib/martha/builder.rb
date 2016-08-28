@@ -26,9 +26,11 @@ module Martha
         if file_name.split('.')[1] == "cpp"
           puts "I found #{method_quantity_cpp} undocumented method(s)/function(s)\n\n"
           document_methods_cpp
+          puts "Finished documenting method(s)/function(s)"
         else
           puts "I found #{method_quantity_rb} undocumented method(s)/function(s)\n\n"
           document_methods_rb
+          puts "Finished documenting method(s)/function(s)"
         end
       else
         error
