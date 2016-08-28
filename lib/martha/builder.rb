@@ -11,6 +11,9 @@ module Martha
       super
       @author = "Victor Elizalde"
       @file_info = []
+      @description = ""
+      @output = ""
+      @method_info = []
     end
 
     desc 'manage FILE_NAME', 'It documents code'
@@ -19,7 +22,6 @@ module Martha
       if File.file?(@file_name)
         greetings
         puts "I found #{method_quantity_cpp} methods/functions\n\n"
-        puts "Documenting methods/functions...\n\n"
         document_methods
       else
         error
@@ -40,7 +42,11 @@ module Martha
       File.open(@file_name, 'w') { |file|
         @file_info.each do |line|
           if function?(line)
-            file.write(method_info)
+            fill_method_info line
+            @method_info.each do |line|
+              file.write("#{line}")
+            end
+            @method_info
             file.write("#{line}")
           else
             file.write("#{line}")
@@ -49,18 +55,38 @@ module Martha
       }
     end
 
-    def method_info
+    def fill_method_info(line)
+      puts "For the following method/function:\n\n"
+      puts "         #{line}"
+      puts "\nWrite your method/function description(What does it do?)\n"
+      print "Description: "
+      @description = STDIN.gets.chomp
+      puts "\nWrite your method/function output(what does it returns?)\n"
+      print "Output:"
+      @output = STDIN.gets.chomp
+      write_method_info line
+    end
 
+    def write_method_info(line)
+      @method_info = []
+      @method_info << "/*\n"
+      title = line.split('(')[0].split(' ')[1]
+      input = line.split('(')[1].chop
+      input[input.size-1] = ''
+      @method_info << "Title: #{title}\n"
+      @method_info << "Input: #{input}\n"
+      @method_info << "Output: #{@output}\n"
+      @method_info << "Description: #{@description}\n"
+      @method_info << "Author: #{@author}\n"
+      @method_info << "*/\n"
+      @method_info
     end
 
     def greetings
-      puts "Martha: Hello I'm Martha!\n\n"
-      puts "Martha: With whom I have the pleasure?\n\n"
-      print "You: "
+      puts "Hello I'm Martha!\n\n"
+      puts "With whom I have the pleasure?\n\n"
+      print "Your Name: "
       @author = STDIN.gets.chomp
-      puts "Martha: Hello #{@author}!\n\n"
-      puts "Martha: Let me reveal this code for you.\n\n"
-      puts "Revealing...\n\n"
     end
 
     def method_quantity_cpp
@@ -81,7 +107,7 @@ module Martha
     end
 
     def error
-      puts "Martha: I'm sorry, but the file doesn't exist"
+      puts "I'm sorry, but the file doesn't exist"
     end
   end
 end
