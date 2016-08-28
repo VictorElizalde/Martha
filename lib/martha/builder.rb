@@ -12,7 +12,8 @@ module Martha
       @author = "Victor Elizalde"
       @file_info = []
       @description = ""
-      @output = ""
+      @output_description = ""
+      @input_description = ""
       @method_info = []
     end
 
@@ -21,7 +22,7 @@ module Martha
       @file_name = file_name
       if File.file?(@file_name)
         greetings
-        puts "I found #{method_quantity_cpp} methods/functions\n\n"
+        puts "I found #{method_quantity_cpp} undocumented methods/functions\n\n"
         document_methods
       else
         error
@@ -29,14 +30,6 @@ module Martha
     end
 
     private
-
-    def write_on(file: '', mode: 'a')
-      if block_given?
-        File.open(file, mode) do |file_|
-          file_.write yield
-        end
-      end
-    end
 
     def document_methods
       File.open(@file_name, 'w') { |file|
@@ -46,8 +39,7 @@ module Martha
             @method_info.each do |line|
               file.write("#{line}")
             end
-            @method_info
-            file.write("#{line}")
+            file.write("#{line.chop} //function\n")
           else
             file.write("#{line}")
           end
@@ -58,12 +50,13 @@ module Martha
     def fill_method_info(line)
       puts "For the following method/function:\n\n"
       puts "         #{line}"
-      puts "\nWrite your method/function description(What does it do?)\n"
-      print "Description: "
+      print "\nInput Description (What does it receives?)\nYour Answer: "
+      @input_description = STDIN.gets.chomp
+      print "\nOutput Description (What does it returns?)\nYour Answer: "
+      @output_description = STDIN.gets.chomp
+      print "\nDescription (What does the method does?)\nYour Answer: "
       @description = STDIN.gets.chomp
-      puts "\nWrite your method/function output(what does it returns?)\n"
-      print "Output:"
-      @output = STDIN.gets.chomp
+      puts "\n"
       write_method_info line
     end
 
@@ -73,9 +66,12 @@ module Martha
       title = line.split('(')[0].split(' ')[1]
       input = line.split('(')[1].chop
       input[input.size-1] = ''
+      output = line.split('(')[0].split(' ')[0]
       @method_info << "Title: #{title}\n"
       @method_info << "Input: #{input}\n"
-      @method_info << "Output: #{@output}\n"
+      @method_info << "Input Description: #{@input_description}\n"
+      @method_info << "Output: #{output}\n"
+      @method_info << "Output Description: #{@output_description}\n"
       @method_info << "Description: #{@description}\n"
       @method_info << "Author: #{@author}\n"
       @method_info << "*/\n"
@@ -87,22 +83,24 @@ module Martha
       puts "With whom I have the pleasure?\n\n"
       print "Your Name: "
       @author = STDIN.gets.chomp
+      puts "\n"
     end
 
     def method_quantity_cpp
       method_quantity = 0
+      before_line = ""
       file = File.open(@file_name)
       file.each_line do |line|
-        @file_info << line
         method_quantity += 1 if function?(line)
+        @file_info << line
       end
       method_quantity
     end
 
     def function?(line)
-      if line.include?('(')
+      if line.include?('(') && !line.include?('//function')
         header = line.split('(')[0]
-        header.split(' ').size == 2 && header.split(' ').first != "else"
+        header.split(' ').size == 2 && header.split(' ').first != "else" && header.split(' ').last != "main"
       end
     end
 
