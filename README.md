@@ -7,6 +7,7 @@ Gem that documents code/software for a better organisation and understanding of 
 - [What it actually do?](#what-it-actually-do)
 - [Contributing](#contributing)
 - [Credits](#author-and-contributor-list)
+- [Issues](#issues)
 
 ## Installation
 Pre-install:
@@ -20,11 +21,11 @@ To install the gem you can just run the following command:
 ## What it actually do?
 Command:
 ```console
-% martha docu <NAME_FILE>
+% martha reveal <NAME_FILE>
 ```
 And your code is documented. Easy
 
-Programming Lenguages Supported:
+Programming Languages Supported:
 - Ruby
 - C++
 
@@ -33,15 +34,18 @@ Programming Lenguages Supported:
 You only need to use the martha command:
 
 ```console
-% martha docu <NAME_FILE>
+% martha reveal <NAME_FILE>
 ```
+
+## Issues
+- The gem recognizes when a function was commented whit the special characters ("//Function") next to the headers. If you delete this, the function will write a new comment under of the old comment.
 
 ## Contributing
 Everyone is freely to collaborate and submit pull request if needed.
-You can add more support for new programming lenguages.
+You can add more support for new programming languages.
 
 ##Author and Contributor List
 -------------------
-- Victor Elizalde
+- Victor Hugo Elizalde
 - Oscar Michel Herrera
-- Mauricio Cortés
+- Mauricio Iván Cortés García
