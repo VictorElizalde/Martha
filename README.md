@@ -46,6 +46,6 @@ You can add more support for new programming languages.
 
 ##Author and Contributor List
 -------------------
-- Victor Hugo Elizalde
+- Victor Hugo Elizalde Muñoz
 - Oscar Michel Herrera
 - Mauricio Iván Cortés García
