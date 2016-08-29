@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require 'martha'
 
-Martha::Builder.start( ARGV )
+Martha::Builder.start(ARGV)
