@@ -23,7 +23,7 @@ Pre-install:
 % gem install nokogiri
 ```
 Install:
-- To install the gem you can just run the following command in the folder you will be working (If you install it in your terminal root it won't work):
+- To install the gem you can just run the following command in the folder you will be working **(If you install it in your terminal root it won't work)**:
 
 ```console
 % gem install martha
